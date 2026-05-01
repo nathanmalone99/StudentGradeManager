@@ -33,11 +33,21 @@ public class Main {
                     scanner.nextLine();
                     System.out.print("Enter student name: ");
                     String name = scanner.nextLine();
+
                     System.out.print("Enter grade: ");
-                    double grade = scanner.nextDouble();
-                    Student newStudent = new Student(name, grade);
-                    manager.addStudent(newStudent);
-                    System.out.println("Student added!");
+                    try {
+                        double grade = scanner.nextDouble();
+                        if (grade < 0 || grade > 100) {
+                            System.out.println("Grade must be between 0 and 100!");
+                            break;
+                        }
+                        Student newStudent = new Student(name, grade);
+                        manager.addStudent(newStudent);
+                        System.out.println("Student added!");
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid grade! Student not added.");
+                        scanner.nextLine();
+                    }
                     break;
                 case 2:
                     manager.printAllStudents();
