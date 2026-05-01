@@ -66,7 +66,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("Invalid choice!");
-            }
+            } scanner.close();
         } while (choice != 6);
     }
 }

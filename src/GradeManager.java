@@ -8,7 +8,6 @@ public class GradeManager {
     }
 
     public void addStudent(Student student) {
-
         students.add(student);
     }
 
