@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -19,8 +20,13 @@ public class Main {
             System.out.println("5. View Lowest Grade");
             System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
-
+            try {
+                choice = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number!");
+                scanner.nextLine();
+                continue;
+            }
 
             switch (choice) {
                 case 1:

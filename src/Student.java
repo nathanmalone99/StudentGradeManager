@@ -36,6 +36,6 @@ public class Student {
 
     @Override
     public String toString() {
-         return name + " | Grade: " + grade + " | :" + getLetterGrade();
+         return name + " | Grade: " + grade + " | : " + getLetterGrade();
     }
 }
