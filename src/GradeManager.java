@@ -18,13 +18,13 @@ public class GradeManager {
     }
 
     public double getClassAverage()  {
-        double sum = 0;
+        double gradeTotal = 0;
 
         for (Student student : students) {
-            sum += student.getGrade();
+            gradeTotal += student.getGrade();
         }
-        double gradeTotal = sum / students.size();
-        return  gradeTotal;
+        double gradeAverage = gradeTotal / students.size();
+        return  gradeAverage;
     } //— returns a double
 
     public Student getHighestGrade() {
