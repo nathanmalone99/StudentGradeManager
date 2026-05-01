@@ -1,5 +1,56 @@
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    Scanner scanner = new Scanner(System.in);
+
+public class Main {
+    public static void main(String[] args) {
+        GradeManager manager = new GradeManager();
+        Scanner scanner = new Scanner(System.in);
+        int choice = 0;
+
+
+        do {
+            System.out.println("=== Student Grade Manager ===");
+            System.out.println("1. Add Student");
+            System.out.println("2. View All Students");
+            System.out.println("3. View Class Average");
+            System.out.println("4. View Highest Grade");
+            System.out.println("5. View Lowest Grade");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+
+            switch (choice) {
+                case 1:
+                    scanner.nextLine();
+                    System.out.print("Enter student name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter grade: ");
+                    double grade = scanner.nextDouble();
+                    Student newStudent = new Student(name, grade);
+                    manager.addStudent(newStudent);
+                    System.out.println("Student added!");
+                    break;
+                case 2:
+                    manager.printAllStudents();
+                    break;
+                case 3:
+                    System.out.printf("Class Average: %.2f%n", manager.getClassAverage());
+                    break;
+                case 4:
+                    System.out.println("Highest: " + manager.getHighestGrade());
+                    break;
+                case 5:
+                    System.out.println("Lowest: " + manager.getLowestGrade());
+                    break;
+                case 6:
+                    System.out.println("Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        } while (choice != 6);
+    }
 }
